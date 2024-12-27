@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+  <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-light bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" th:href="@{'/'}">LMS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{'/myBooks'}">My Books</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{'/addBook'}">Add Book</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div align="center" style="margin-top: 25px;">
+  <h3><b>Create New Book</b></h3>
+  <br />
+  <div class="col-sm-4">
+    <form action="#" th:action="@{/saveBook}" th:object="${book}" method="post">
+
+
+      <div align="left">
+        <tr>
+          <label class="form-label" >Book Name</label>
+          <td>
+            <input type="hidden" th:field="*{id}" />
+            <input type="text" th:field="*{bookName}" class="form-control" placeholder="Book Name" />
+          </td>
+        </tr>
+      </div>
+
+      <div align="left">
+
+        <tr>
+          <label class="form-label" style="margin-top: 10px;">Author</label>
+          <td><input type="text" th:field="*{author}" class="form-control" placeholder="Author" /></td>
+        </tr>
+      </div>
+
+      <div align="left">
+        <tr>
+          <label class="form-label" style="margin-top: 10px;">Book Price</label>
+          <td><input type="text" th:field="*{bookPrice}" class="form-control" placeholder="Book Price" /></td>
+        </tr>
+      </div>
+      <br>
+      <tr>
+        <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+      </tr>
+      </table>
+    </form>
+  </div>
+</body>
+</html>
